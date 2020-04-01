@@ -1,11 +1,17 @@
 ## Solving Travelling Salesman Problem using Ant Colony Optimization
 Taking as data a [Symmetric traveling salesman problem (TSP)](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/): `kroA100.tsp` - **The 100-city problem A** by *Krolak/Felts/Nelson*
 
-### Jupyter Notebook Viewer
-By clicking [right here](https://nbviewer.jupyter.org/github/yammadev/aco-tsp/blob/master/aco-tsp.ipynb)
+### Ant Colony Optimization (ACO)
+It is an **optimization algorithm** used to find the shortest path between points or nodes. It is developed by observing the behaviour of ants when they follow a path to their food source. Ants are essentially blind so they follow pheromone trails left behind by other ants on the path. This algorithm follows the same approach by using the probability of going to the next node as the distance to the node and the amount of pheromones.
 
-### Autor / Author
+### Symmetric traveling salesman problem (TSP)
+Given a set of **n** nodes and distances for each pair of **nodes**, find a roundtrip of minimal total length visiting each node exactly once. The distance from node *i* to node *j* is the same as from node *j* to node *i*.
+
+### Author
 Yefferson Marí­n - ([@yammadev](https://github.com/yammadev))
+
+## Implementation
+TO DO
 
 ## Changelog
 All notable changes to this project are documented in this part of the file. The format is based on [Keep a Changelog](http://keepachangelog.com/).
@@ -22,6 +28,14 @@ All notable changes to this project are documented in this part of the file. The
 - **Removed** for removed features.
 - **Fixed for** any bug fixes.
 - **Security** in case of vulnerabilities.
+
+### [1.2.0] - 2020-04-01
+#### Added
+- Plotting features.
+
+#### Modified
+- Better code structure.
+- Readme edited.
 
 ### [1.1.0] - 2020-04-01
 #### Added

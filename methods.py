@@ -35,8 +35,8 @@ def getTspData(tsp):
 # Display headers from a given dictionary gotten from a TSP file
 # @arg dict (tsp to dict converted)
 def displayTspHeaders(dict):
-    print('Name: ', dict['name'])
+    print('\nName: ', dict['name'])
     print('Type: ', dict['type'])
     print('Comment: ', dict['comment'])
     print('Dimension: ', dict['dimension'])
-    print('Edge Weight Type: ', dict['edge_weight_type'])
+    print('Edge Weight Type: ', dict['edge_weight_type'], '\n')
