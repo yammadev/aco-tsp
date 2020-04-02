@@ -1,6 +1,16 @@
-# Get data from a given TSP file and convert it into a dictionary
-# @arg tsp (file name)
-# @return dictionary (file as dictionary)
+'''
+---------------------
+        TSP
+---------------------
+1- getTspData(tsp)
+2- displayTspHeaders(dict)
+'''
+
+'''
+    Get data from a given TSP file and convert it into a dictionary
+    @arg {string} tsp -- The TSP file src
+    @return {dictionary} -- file as dictionary
+'''
 def getTspData(tsp):
     # Open input file
     infile = open(tsp, 'r')
@@ -22,8 +32,8 @@ def getTspData(tsp):
     # Close input file
     infile.close()
 
-    # Return file dictionary
-    return {
+    # Return file as dictionary
+    dict = {
         'name': name,
         'type': type,
         'comment': comment,
@@ -32,8 +42,12 @@ def getTspData(tsp):
         'node_coord_section': node_coord_section
     }
 
-# Display headers from a given dictionary gotten from a TSP file
-# @arg dict (tsp to dict converted)
+    return dict
+
+'''
+    Display headers from a given dictionary gotten from a TSP file
+    @arg {dictionary} dict -- TSP to dict converted
+'''
 def displayTspHeaders(dict):
     print('\nName: ', dict['name'])
     print('Type: ', dict['type'])

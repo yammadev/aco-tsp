@@ -29,6 +29,10 @@ All notable changes to this project are documented in this part of the file. The
 - **Fixed for** any bug fixes.
 - **Security** in case of vulnerabilities.
 
+### [1.2.1] - 2020-04-02
+#### Modified
+- Restructured for better code reading and implementation.
+
 ### [1.2.0] - 2020-04-01
 #### Added
 - Plotting features.
