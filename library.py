@@ -1,4 +1,5 @@
 # [0] Libs
+
 import numpy as np
 
 # [1] TSP
@@ -6,10 +7,10 @@ import numpy as np
 """
     Get data from a given TSP file and convert it into a dictionary
     @arg
-        {string} tsp        -- The TSP file src
+        {string} tsp    -- The TSP file src
 
     @return
-        {dictionary}        -- The TSP file as dictionary
+        {dictionary}    -- The TSP file as dictionary
 """
 def getTspData(tsp):
     # Open input file
@@ -45,7 +46,7 @@ def getTspData(tsp):
 """
     Display headers from a given dictionary gotten from a TSP file
     @arg
-        {dictionary} dict       -- TSP to dict converted
+        {dictionary} dict   -- TSP to dict converted
 """
 def displayTspHeaders(dict):
     print('\nName: ', dict['name'])
@@ -60,7 +61,7 @@ def displayTspHeaders(dict):
     Run Ant Colony Optimization (ACO) algorithm for a given Symmetric traveling salesman problem (TSP) space and data
     @arg
         {numpy.ndarray} space           -- The space
-        {int} iterations {50}           -- Number of iterations (Ending condition)
+        {int} iterations {80}           -- Number of iterations (Ending condition)
         {int} colony {50}               -- Number of ants in the colony
         {float} alpha {1.0}             -- Alpha algorithm parameter, more or less weight to a selected distance
         {float} beta {1.0}              -- Beta algorithm parameter, more or less weight to a selected distance
@@ -70,7 +71,7 @@ def displayTspHeaders(dict):
     @return
         {Tuple(numpy.ndarray, float)}   -- Indexes of the minimun distance path and the minimun distance
 """
-def runAcoTsp(space, iterations = 50, colony = 50, alpha = 1.0, beta = 1.0, del_tau = 1.0, rho = 0.5):
+def runAcoTsp(space, iterations = 80, colony = 50, alpha = 1.0, beta = 1.0, del_tau = 1.0, rho = 0.5):
     # [1] Find inverted distances for all nodes
     inv_distances = inverseDistances(space)
 

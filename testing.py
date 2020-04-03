@@ -5,16 +5,16 @@ import matplotlib.pyplot as plt
 """
     Run Ant Colony Optimization (ACO) algorithm for a given Symmetric traveling salesman problem (TSP)
     @arg
-        {string} tsp        -- The TSP file src name (located in /data folder)
+        {string} tsp    -- The TSP file src name (located in /data folder)
 
     @export
-        {results}           -- Generated files for results
-        {plots}             -- Generated files for plots
+        {results}       -- Generated files for results
+        {plots}         -- Generated files for plots
 """
 def test(tsp):
     # Default arguments
     '''
-        iterations {50}     -- Number of iterations (Ending condition)
+        iterations {80}     -- Number of iterations (Ending condition)
         colony {50}         -- Number of ants in the colony
         alpha {1.0}         -- Alpha algorithm parameter, more or less weight to a selected distance
         beta {1.0}          -- Beta algorithm parameter, more or less weight to a selected distance
@@ -24,6 +24,15 @@ def test(tsp):
 
     # Configuration vars
     n = 3                   # Repetitions
+
+    # Algorithm Parameters
+    iterations = 80
+    colony = 50
+    alpha = 1
+    beta = 1
+    del_tau = 1.0
+    rho = 0.5
+
     results = np.zeros(n)   # Store
 
     # Get TSP data
@@ -40,7 +49,7 @@ def test(tsp):
     # Repeat and save path plot for each result
     for i in range(n):
         # Run
-        min_path, min_distance = runAcoTsp(space)
+        min_path, min_distance = runAcoTsp(space, iterations, colony, alpha, beta, del_tau, rho)
 
         # Store result
         results[i] = min_distance
@@ -49,7 +58,7 @@ def test(tsp):
         savePathPlot(i, n, tsp, space, min_path, min_distance)
 
     # Save results txt
-    saveResultsTxt(src, results)
+    saveResultsTxt(src, results, iterations, colony, alpha, beta, del_tau, rho)
 
 """
     Save Space plot
@@ -118,26 +127,45 @@ def savePathPlot(i, n, tsp, space, min_path, min_distance):
     @arg
         {dict} src                  -- The TSP file src
         {numpy.ndarray} results     -- The TSP file as dictionary
+        {int} iterations {80}       -- Number of iterations (Ending condition)
+        {int} colony {50}           -- Number of ants in the colony
+        {float} alpha {1.0}         -- Alpha algorithm parameter, more or less weight to a selected distance
+        {float} beta {1.0}          -- Beta algorithm parameter, more or less weight to a selected distance
+        {float} del_tau {1.0}       -- Delta Tau algorithm parameter, pheromones releasing rate
+        {float} rho {0.5}           -- Rho algorithm parameter, pheromones evaporation rate
 
     @export
         {txt}                       -- Generated .txt for ACO-TSP results
 """
-def saveResultsTxt(src, results):
+def saveResultsTxt(src, results, iterations, colony, alpha, beta, del_tau, rho):
     # Open or create
     file = 'results/{}-results.txt'.format(src['name'])
     txt = open(file, 'w+')
 
     # Write file
-    txt.write('\n-------------------')
-    txt.write('\n ACO-TSP Results')
-    txt.write('\n-------------------')
-    txt.write('\nNAME               : {}.tsp (stored in /data)'.format(src['name']))
-    txt.write('\n# OF NODES         : {}'.format(src['dimension']))
-    txt.write('\n-------------------')
-    txt.write('\n MIN_DISTANCES     : {}'.format(results))
+    txt.write('\n--------------------------')
+    txt.write('\n 1- TSP INFO')
+    txt.write('\n--------------------------')
+    txt.write('\nNAME           : {}.tsp (stored in /data)'.format(src['name']))
+    txt.write('\n# OF NODES     : {}\n'.format(src['dimension']))
+
+    txt.write('\n--------------------------')
+    txt.write('\n 2- ALGORITHM PARAMETERS')
+    txt.write('\n--------------------------')
+    txt.write('\nITERATIONS     : {}'.format(iterations))
+    txt.write('\nCOLONY         : {}'.format(colony))
+    txt.write('\nALPHA          : {}'.format(alpha))
+    txt.write('\nBETA           : {}'.format(beta))
+    txt.write('\nDEL_TAU        : {}'.format(del_tau))
+    txt.write('\nRHO            : {}\n'.format(rho))
+
+    txt.write('\n--------------------------')
+    txt.write('\n 3- RESULTS ')
+    txt.write('\n--------------------------')
+    txt.write('\nMIN_DISTANCES      : {}'.format(results))
     txt.write('\n# OF RESULTS       : {}'.format(results.size))
     txt.write('\nAVG_MIN_DISTANCE   : {}'.format(np.average(results)))
-    txt.write('\n-------------------')
+    txt.write('\n--------------------------')
 
     # Close file
     txt.close()
@@ -153,7 +181,11 @@ def saveResultsTxt(src, results):
 def msg(str):
     print('[Testing ACO_TSP] {}'.format(str))
 
-# Main
+"""
+    Show a console message
+    @arg
+        {string} str
+"""
 def main():
     # Test for each stored TSP data
     test('kroA100')
