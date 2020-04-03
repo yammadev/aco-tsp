@@ -61,6 +61,13 @@ All notable changes to this project are documented in this part of the file. The
 - **Fixed for** any bug fixes.
 - **Security** in case of vulnerabilities.
 
+### [2.1.1] - 2020-04-03
+#### Added
+- `aco-tsp.pdf` with paper version of `Jupiter Notebook`.
+
+#### Modified
+- `Jupiter Notebook` little improvements.
+
 ### [2.1.0] - 2020-04-03
 #### Added
 - `aco-tsp.py` executable script exported from `Jupiter Notebook`.
