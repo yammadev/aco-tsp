@@ -1,0 +1,11 @@
+
+-------------------
+ ACO-TSP Results
+-------------------
+NAME               : berlin52.tsp (stored in /data)
+# OF NODES         : 52
+-------------------
+ MIN_DISTANCES     : [14470.17518356 13929.6861055  13929.6861055 ]
+# OF RESULTS       : 3
+AVG_MIN_DISTANCE   : 14109.84913151837
+-------------------
