@@ -48,7 +48,7 @@ Stored in [results/berlin52-results.txt](results/berlin52-results.txt)
 ## Changelog
 All notable changes to this project are documented in this part of the file. The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-#### [x.y.z] - AAAA-MM-DD / YYYY-MM-DD
+#### [x.y.z] - YYYY-MM-DD
 - **x** for major release related to major additions or changes.
 - **y** for minor release related to minor additions or changes in current major release.
 - **z** for minor release related to minor additions or changes in current minor release.
@@ -60,6 +60,10 @@ All notable changes to this project are documented in this part of the file. The
 - **Removed** for removed features.
 - **Fixed for** any bug fixes.
 - **Security** in case of vulnerabilities.
+
+### [2.1.3] - 2020-04-04
+#### Modified
+- `Readme` edited.
 
 ### [2.1.2] - 2020-04-04
 #### Modified
